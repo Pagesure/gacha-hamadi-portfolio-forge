@@ -54,8 +54,8 @@ const Portfolio = () => {
         home: 'Home',
         about: 'About',
         education: 'Education',
-        skills: 'Skills',
         experience: 'Experience',
+        skills: 'Skills',
         projects: 'Projects',
         awards: 'Awards',
         blog: 'Blog',
@@ -466,7 +466,7 @@ const Portfolio = () => {
         'Advanced document classification using LayoutLMv3 with 90% accuracy on diverse document types.',
       tech: ['LayoutLMv3', 'Python', 'Computer Vision'],
       category: 'ai',
-      github: 'https://github.com/gacha-hamadi/document-classification',
+      github: 'https://github.com/HamadiKacha/document-classification',
       image:
         'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop',
     },
@@ -476,7 +476,7 @@ const Portfolio = () => {
         'Real-time eye tracking system for driver monitoring with 95% detection rate using MediaPipe and OpenCV.',
       tech: ['MediaPipe', 'OpenCV', 'Computer Vision'],
       category: 'cv',
-      github: 'https://github.com/gacha-hamadi/driver-vigilance',
+      github: 'https://github.com/HamadiKacha/driver-vigilance',
       image:
         'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop',
     },
@@ -486,7 +486,7 @@ const Portfolio = () => {
         'Web scraping and NLP-based fake news detection system with 95% accuracy, processing 1000+ articles.',
       tech: ['BeautifulSoup', 'NLTK', 'Scikit-learn'],
       category: 'nlp',
-      github: 'https://github.com/gacha-hamadi/fake-news-analysis',
+      github: 'https://github.com/HamadiKacha/fake-news-analysis',
       image:
         'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=300&fit=crop',
     },
@@ -496,7 +496,7 @@ const Portfolio = () => {
         'Advanced document information extraction using LayoutLMv3 + Qwen32VB with 98% accuracy.',
       tech: ['LayoutLMv3', 'Qwen32VB', 'NLP'],
       category: 'ai',
-      github: 'https://github.com/gacha-hamadi/information-extraction',
+      github: 'https://github.com/HamadiKacha/information-extraction',
       image:
         'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&h=300&fit=crop',
     },
@@ -506,7 +506,7 @@ const Portfolio = () => {
         'AI chatbot platform for cancer patients using Gemini API, supporting 500+ users.',
       tech: ['Gemini API', 'Flask', 'NLP'],
       category: 'fullstack',
-      github: 'https://github.com/gacha-hamadi/we-care-platform',
+      github: 'https://github.com/HamadiKacha/we-care-platform',
       image:
         'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=400&h=300&fit=crop',
     },
@@ -1216,7 +1216,7 @@ const Portfolio = () => {
                   className="hover:scale-110 transition-transform duration-200"
                 >
                   <a
-                    href="https://github.com/gacha-hamadi"
+                    href="https://github.com/HamadiKacha"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -1254,7 +1254,19 @@ const Portfolio = () => {
                   </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form
+                  onSubmit={(e) => {
+                    handleSubmit(e);
+                    setFormData({
+                      name: '',
+                      email: '',
+                      subject: '',
+                      message: '',
+                    });
+                    setFormSubmitted(true);
+                  }}
+                  className="space-y-4"
+                >
                   <div className="group">
                     <Input
                       type="text"
