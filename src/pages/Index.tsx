@@ -6,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 const Portfolio = () => {
-  const [currentLang, setCurrentLang] = useState('en');
+  const [currentLang, setCurrentLang] = useState<'en' | 'fr' | 'ar'>('en');
   const [darkMode, setDarkMode] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
@@ -22,6 +22,7 @@ const Portfolio = () => {
         home: 'Home',
         about: 'About',
         skills: 'Skills',
+        experience: 'Experience',
         projects: 'Projects',
         awards: 'Awards',
         blog: 'Blog',
@@ -37,11 +38,14 @@ const Portfolio = () => {
       },
       about: {
         title: 'About Me',
-        description: 'Gacha Hamadi is a highly skilled AI Developer & Data Scientist with expertise in AI development, computer vision, machine learning, natural language processing, and full-stack deployment. He has built advanced real-world AI systems involving document AI, computer vision (object detection, eye-tracking, real-time vigilance systems), web scraping, NLP-based fake news detection, LLM agents, and GPT-4 conversational systems.',
-        mission: 'Beyond technical expertise, Gacha demonstrates strong leadership as an active IEEE leader and multi-award-winning AI innovator. His mission is to bridge the gap between cutting-edge AI research and practical real-world applications.',
-        experience: 'Years of Experience',
-        projectsCompleted: 'Projects Completed',
-        awardsWon: 'Awards Won'
+        description: 'Gacha Hamadi is a highly skilled AI Developer & Data Scientist with extensive expertise in AI development, computer vision, NLP, and backend deployment. He has delivered real-world AI projects in document AI, computer vision pipelines, GPT-4 conversational agents, NLP-powered fake news detection, web scraping, and full-stack systems.',
+        mission: 'Gacha is an active community leader in IEEE, has won multiple national AI hackathons, and demonstrates outstanding full-lifecycle AI deployment capabilities combining strong technical, leadership, and communication skills.',
+        education: 'Education',
+        timeline: {
+          master: 'Professional Master in Data Science',
+          bachelor: 'Bachelor in Mathematics and Applications', 
+          highschool: 'High School Diploma - Technical Science'
+        }
       },
       skills: {
         title: 'Technical Skills',
@@ -51,6 +55,40 @@ const Portfolio = () => {
         backend: 'Backend Development',
         deployment: 'Deployment & Databases',
         soft: 'Leadership & Soft Skills'
+      },
+      experience: {
+        title: 'Professional Experience',
+        swconsulting: {
+          title: 'AI Developer',
+          company: 'SW Consulting',
+          period: 'Nov 2024 – Present',
+          achievements: [
+            'Document classification using LayoutLMv3 (90% accuracy)',
+            'Information extraction from documents (98% extraction accuracy)',
+            'Object detection & segmentation using YOLO models',
+            'Developed GPT-4 based AI conversational agent'
+          ]
+        },
+        smartlab: {
+          title: 'Master Internship',
+          company: 'SMARTLAB FMM',
+          period: 'Mar 2024 – Sep 2024',
+          achievements: [
+            'Real-time driver vigilance system (95% detection rate)',
+            'MediaPipe, OpenCV, Dlib integration',
+            'FastAPI, Django, PostgreSQL full-stack backend'
+          ]
+        },
+        itgate: {
+          title: 'Summer Internship',
+          company: 'ItGateGroup',
+          period: 'Jul 2023 – Aug 2023',
+          achievements: [
+            'Fake news detection using web scraping & NLP',
+            'BeautifulSoup, Selenium, Scrapy implementation',
+            'Sklearn, NLTK, Flask development'
+          ]
+        }
       },
       projects: {
         title: 'Featured Projects',
@@ -67,7 +105,8 @@ const Portfolio = () => {
       awards: {
         title: 'Awards & Community',
         leadership: 'IEEE Leadership',
-        hackathons: 'Hackathon Victories'
+        hackathons: 'Hackathon Victories',
+        details: 'View Details'
       },
       blog: {
         title: 'Latest Insights',
@@ -90,6 +129,7 @@ const Portfolio = () => {
         home: 'Accueil',
         about: 'À Propos',
         skills: 'Compétences',
+        experience: 'Expérience',
         projects: 'Projets',
         awards: 'Récompenses',
         blog: 'Blog',
@@ -105,11 +145,14 @@ const Portfolio = () => {
       },
       about: {
         title: 'À Propos de Moi',
-        description: 'Gacha Hamadi est un développeur IA et data scientist hautement qualifié avec une expertise en développement IA, vision par ordinateur, apprentissage automatique, traitement du langage naturel et déploiement full-stack.',
-        mission: 'Au-delà de l\'expertise technique, Gacha démontre un leadership fort en tant que leader IEEE actif et innovateur IA multi-primé.',
-        experience: 'Années d\'Expérience',
-        projectsCompleted: 'Projets Terminés',
-        awardsWon: 'Récompenses Gagnées'
+        description: 'Gacha Hamadi est un développeur IA et data scientist hautement qualifié avec une expertise étendue en développement IA, vision par ordinateur, NLP et déploiement backend.',
+        mission: 'Gacha est un leader communautaire actif à IEEE, a remporté plusieurs hackathons nationaux d\'IA, et démontre des capacités exceptionnelles de déploiement IA.',
+        education: 'Formation',
+        timeline: {
+          master: 'Master Professionnel en Data Science',
+          bachelor: 'Licence en Mathématiques et Applications',
+          highschool: 'Baccalauréat - Sciences Techniques'
+        }
       },
       skills: {
         title: 'Compétences Techniques',
@@ -119,6 +162,40 @@ const Portfolio = () => {
         backend: 'Développement Backend',
         deployment: 'Déploiement & Bases de Données',
         soft: 'Leadership & Soft Skills'
+      },
+      experience: {
+        title: 'Expérience Professionnelle',
+        swconsulting: {
+          title: 'Développeur IA',
+          company: 'SW Consulting',
+          period: 'Nov 2024 – Présent',
+          achievements: [
+            'Classification de documents avec LayoutLMv3 (90% précision)',
+            'Extraction d\'informations de documents (98% précision)',
+            'Détection et segmentation d\'objets avec YOLO',
+            'Agent conversationnel GPT-4 développé'
+          ]
+        },
+        smartlab: {
+          title: 'Stage de Master',
+          company: 'SMARTLAB FMM',
+          period: 'Mar 2024 – Sep 2024',
+          achievements: [
+            'Système de vigilance conducteur temps réel (95% détection)',
+            'Intégration MediaPipe, OpenCV, Dlib',
+            'Backend full-stack FastAPI, Django, PostgreSQL'
+          ]
+        },
+        itgate: {
+          title: 'Stage d\'Été',
+          company: 'ItGateGroup',
+          period: 'Jul 2023 – Aoû 2023',
+          achievements: [
+            'Détection fake news avec web scraping & NLP',
+            'Implémentation BeautifulSoup, Selenium, Scrapy',
+            'Développement Sklearn, NLTK, Flask'
+          ]
+        }
       },
       projects: {
         title: 'Projets Phares',
@@ -135,7 +212,8 @@ const Portfolio = () => {
       awards: {
         title: 'Récompenses & Communauté',
         leadership: 'Leadership IEEE',
-        hackathons: 'Victoires Hackathon'
+        hackathons: 'Victoires Hackathon',
+        details: 'Voir Détails'
       },
       blog: {
         title: 'Dernières Réflexions',
@@ -158,6 +236,7 @@ const Portfolio = () => {
         home: 'الرئيسية',
         about: 'نبذة',
         skills: 'المهارات',
+        experience: 'الخبرة',
         projects: 'المشاريع',
         awards: 'الجوائز',
         blog: 'المدونة',
@@ -173,11 +252,14 @@ const Portfolio = () => {
       },
       about: {
         title: 'نبذة عني',
-        description: 'غشة حمادي هو مطور ذكاء اصطناعي وعالم بيانات ماهر للغاية مع خبرة في تطوير الذكاء الاصطناعي ورؤية الحاسوب والتعلم الآلي ومعالجة اللغات الطبيعية.',
-        mission: 'بالإضافة إلى الخبرة التقنية، يُظهر غشة قيادة قوية كقائد IEEE نشط ومبدع ذكاء اصطناعي متعدد الجوائز.',
-        experience: 'سنوات الخبرة',
-        projectsCompleted: 'المشاريع المكتملة',
-        awardsWon: 'الجوائز المحرزة'
+        description: 'غشة حمادي هو مطور ذكاء اصطناعي وعالم بيانات ماهر للغاية مع خبرة واسعة في تطوير الذكاء الاصطناعي ورؤية الحاسوب.',
+        mission: 'غشة قائد مجتمعي نشط في IEEE، فاز بعدة هاكاثونات وطنية للذكاء الاصطناعي، ويُظهر قدرات استثنائية في نشر الذكاء الاصطناعي.',
+        education: 'التعليم',
+        timeline: {
+          master: 'ماجستير مهني في علم البيانات',
+          bachelor: 'بكالوريوس في الرياضيات والتطبيقات',
+          highschool: 'شهادة الثانوية العامة - علوم تقنية'
+        }
       },
       skills: {
         title: 'المهارات التقنية',
@@ -187,6 +269,40 @@ const Portfolio = () => {
         backend: 'تطوير الخادم',
         deployment: 'النشر وقواعد البيانات',
         soft: 'القيادة والمهارات الناعمة'
+      },
+      experience: {
+        title: 'الخبرة المهنية',
+        swconsulting: {
+          title: 'مطور ذكاء اصطناعي',
+          company: 'SW Consulting',
+          period: 'نوفمبر 2024 – الحاضر',
+          achievements: [
+            'تصنيف المستندات باستخدام LayoutLMv3 (90% دقة)',
+            'استخراج المعلومات من المستندات (98% دقة)',
+            'كشف وتقسيم الكائنات باستخدام YOLO',
+            'تطوير وكيل محادثة GPT-4'
+          ]
+        },
+        smartlab: {
+          title: 'تدريب ماجستير',
+          company: 'SMARTLAB FMM',
+          period: 'مارس 2024 – سبتمبر 2024',
+          achievements: [
+            'نظام يقظة السائق في الوقت الفعلي (95% كشف)',
+            'تكامل MediaPipe, OpenCV, Dlib',
+            'خادم شامل FastAPI, Django, PostgreSQL'
+          ]
+        },
+        itgate: {
+          title: 'تدريب صيفي',
+          company: 'ItGateGroup',
+          period: 'يوليو 2023 – أغسطس 2023',
+          achievements: [
+            'كشف الأخبار المزيفة باستخدام كشط الويب و NLP',
+            'تنفيذ BeautifulSoup, Selenium, Scrapy',
+            'تطوير Sklearn, NLTK, Flask'
+          ]
+        }
       },
       projects: {
         title: 'المشاريع المميزة',
@@ -203,7 +319,8 @@ const Portfolio = () => {
       awards: {
         title: 'الجوائز والمجتمع',
         leadership: 'قيادة IEEE',
-        hackathons: 'انتصارات الهاكاثون'
+        hackathons: 'انتصارات الهاكاثون',
+        details: 'عرض التفاصيل'
       },
       blog: {
         title: 'أحدث الرؤى',
@@ -286,10 +403,10 @@ const Portfolio = () => {
   };
 
   const awards = [
-    { title: '1st Place - CISolutions Hackathon 2023', icon: Award },
-    { title: '1st Place - SDC Non-Technical Challenge 2024', icon: Award },
-    { title: '1st Place - Wie Heal Challenge 2024', icon: Award },
-    { title: 'IEEE Member & Treasurer IEEE Sight Group', icon: Users }
+    { title: '1st Place - CISolutions Hackathon 2023', icon: Award, description: 'Won first place in national AI hackathon competition' },
+    { title: '1st Place - SDC Non-Technical Challenge 2024', icon: Award, description: 'Secured top position in innovation challenge' },
+    { title: '1st Place - Wie Heal Challenge 2024', icon: Award, description: 'Led winning team in healthcare AI challenge' },
+    { title: 'IEEE Member & Treasurer IEEE Sight Group', icon: Users, description: 'Active leadership role in IEEE community (2022-2024)' }
   ];
 
   const blogPosts = [
@@ -316,10 +433,11 @@ const Portfolio = () => {
   ];
 
   const [projectFilter, setProjectFilter] = useState('all');
+  const [selectedAward, setSelectedAward] = useState<number | null>(null);
   const filteredProjects = projectFilter === 'all' ? projects : projects.filter(p => p.category === projectFilter);
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${darkMode ? 'dark bg-gray-900' : 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'}`}>
+    <div className={`min-h-screen transition-all duration-500 ${darkMode ? 'dark bg-gray-900' : 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'} ${currentLang === 'ar' ? 'rtl' : 'ltr'}`}>
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrollY > 50 ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
         <div className="container mx-auto px-6 py-4">
@@ -339,7 +457,7 @@ const Portfolio = () => {
             <div className="flex items-center space-x-4">
               {/* Language Toggle */}
               <div className="flex bg-white/20 dark:bg-gray-800/20 backdrop-blur-md rounded-full p-1">
-                {['en', 'fr', 'ar'].map((lang) => (
+                {(['en', 'fr', 'ar'] as const).map((lang) => (
                   <button
                     key={lang}
                     onClick={() => setCurrentLang(lang)}
@@ -420,7 +538,7 @@ const Portfolio = () => {
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 {t.about.description}
@@ -430,26 +548,76 @@ const Portfolio = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-3 gap-6">
-              <div className="text-center p-6 bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-xl">
-                <div className="text-3xl font-bold text-blue-600 mb-2">3+</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">{t.about.experience}</div>
-              </div>
-              <div className="text-center p-6 bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-xl">
-                <div className="text-3xl font-bold text-purple-600 mb-2">15+</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">{t.about.projectsCompleted}</div>
-              </div>
-              <div className="text-center p-6 bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-xl">
-                <div className="text-3xl font-bold text-green-600 mb-2">3</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">{t.about.awardsWon}</div>
+            <div>
+              <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-200">{t.about.education}</h3>
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-4 h-4 bg-blue-500 rounded-full mt-2"></div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800 dark:text-gray-200">{t.about.timeline.master}</h4>
+                    <p className="text-gray-600 dark:text-gray-400">2022-2024</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-4 h-4 bg-purple-500 rounded-full mt-2"></div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800 dark:text-gray-200">{t.about.timeline.bachelor}</h4>
+                    <p className="text-gray-600 dark:text-gray-400">2019-2022</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-4 h-4 bg-green-500 rounded-full mt-2"></div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800 dark:text-gray-200">{t.about.timeline.highschool}</h4>
+                    <p className="text-gray-600 dark:text-gray-400">2018-2019</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Experience Section */}
+      <section id="experience" className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              {t.experience.title}
+            </h2>
+          </div>
+          
+          <div className="space-y-12">
+            {Object.entries(t.experience).filter(([key]) => key !== 'title').map(([key, exp]) => (
+              <Card key={key} className="p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
+                <CardContent className="p-0">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <div>
+                      <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-2">{exp.title}</h3>
+                      <p className="text-xl text-blue-600 dark:text-blue-400 font-medium">{exp.company}</p>
+                    </div>
+                    <div className="text-gray-600 dark:text-gray-400 mt-2 md:mt-0">
+                      {exp.period}
+                    </div>
+                  </div>
+                  
+                  <ul className="space-y-3">
+                    {exp.achievements.map((achievement, index) => (
+                      <li key={index} className="flex items-start">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <span className="text-gray-600 dark:text-gray-300">{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Skills Section */}
-      <section id="skills" className="py-20">
+      <section id="skills" className="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -468,7 +636,7 @@ const Portfolio = () => {
                     {category === 'backend' && <Server className="w-6 h-6 text-orange-500 mr-3" />}
                     {category === 'deployment' && <Database className="w-6 h-6 text-red-500 mr-3" />}
                     {category === 'soft' && <Users className="w-6 h-6 text-indigo-500 mr-3" />}
-                    <h3 className="text-lg font-semibold">{t.skills[category]}</h3>
+                    <h3 className="text-lg font-semibold">{t.skills[category as keyof typeof t.skills]}</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {skillList.map((skill, index) => (
@@ -485,7 +653,7 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
+      <section id="projects" className="py-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -553,7 +721,7 @@ const Portfolio = () => {
       </section>
 
       {/* Awards Section */}
-      <section id="awards" className="py-20">
+      <section id="awards" className="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -561,36 +729,41 @@ const Portfolio = () => {
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-center">{t.awards.hackathons}</h3>
-              <div className="space-y-4">
-                {awards.slice(0, 3).map((award, index) => (
-                  <div key={index} className="flex items-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg">
-                    <Award className="w-8 h-8 text-yellow-500 mr-4" />
-                    <span className="font-medium">{award.title}</span>
+          <div className="grid md:grid-cols-2 gap-8">
+            {awards.map((award, index) => (
+              <Card 
+                key={index} 
+                className="group p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
+                onClick={() => setSelectedAward(selectedAward === index ? null : index)}
+              >
+                <CardContent className="p-0">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <award.icon className="w-8 h-8 text-yellow-500 mr-4" />
+                      <div>
+                        <h3 className="font-semibold text-gray-800 dark:text-gray-200">{award.title}</h3>
+                        <button className="text-blue-500 text-sm hover:underline mt-1">
+                          {t.awards.details}
+                        </button>
+                      </div>
+                    </div>
+                    <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${selectedAward === index ? 'rotate-180' : ''}`} />
                   </div>
-                ))}
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-center">{t.awards.leadership}</h3>
-              <div className="space-y-4">
-                {awards.slice(3).map((award, index) => (
-                  <div key={index} className="flex items-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg">
-                    <Users className="w-8 h-8 text-blue-500 mr-4" />
-                    <span className="font-medium">{award.title}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+                  
+                  {selectedAward === index && (
+                    <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg animate-fade-in">
+                      <p className="text-gray-600 dark:text-gray-300">{award.description}</p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
+      <section id="blog" className="py-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -624,7 +797,7 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20">
+      <section id="contact" className="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
