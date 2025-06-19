@@ -1,14 +1,22 @@
-
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Github, Linkedin, Twitter, Mail, Phone, MapPin, Download, ExternalLink, Award, Users, Code, Brain, Eye, MessageSquare, Database, Server } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Twitter, Mail, Phone, MapPin, Download, ExternalLink, Award, Users, Code, Brain, Eye, MessageSquare, Database, Server, GraduationCap, Building, Calendar, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
 const Portfolio = () => {
   const [currentLang, setCurrentLang] = useState<'en' | 'fr' | 'ar'>('en');
   const [darkMode, setDarkMode] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -21,6 +29,7 @@ const Portfolio = () => {
       nav: {
         home: 'Home',
         about: 'About',
+        education: 'Education',
         skills: 'Skills',
         experience: 'Experience',
         projects: 'Projects',
@@ -39,12 +48,29 @@ const Portfolio = () => {
       about: {
         title: 'About Me',
         description: 'Gacha Hamadi is a highly skilled AI Developer & Data Scientist with extensive expertise in AI development, computer vision, NLP, and backend deployment. He has delivered real-world AI projects in document AI, computer vision pipelines, GPT-4 conversational agents, NLP-powered fake news detection, web scraping, and full-stack systems.',
-        mission: 'Gacha is an active community leader in IEEE, has won multiple national AI hackathons, and demonstrates outstanding full-lifecycle AI deployment capabilities combining strong technical, leadership, and communication skills.',
-        education: 'Education',
-        timeline: {
-          master: 'Professional Master in Data Science',
-          bachelor: 'Bachelor in Mathematics and Applications', 
-          highschool: 'High School Diploma - Technical Science'
+        mission: 'Gacha is an active community leader in IEEE, has won multiple national AI hackathons, and demonstrates outstanding full-lifecycle AI deployment capabilities combining strong technical, leadership, and communication skills.'
+      },
+      education: {
+        title: 'Education',
+        degrees: {
+          master: {
+            title: 'Professional Master in Data Science',
+            period: '2022-2024',
+            institution: 'Higher Institute of Computer Science and Mathematics, Monastir',
+            description: 'Developed advanced expertise in machine learning, AI development, data analytics, and mathematical modeling. Completed capstone projects on real-world AI solutions, including computer vision, LLMs, and NLP.'
+          },
+          bachelor: {
+            title: 'Bachelor in Mathematics and Applications',
+            period: '2019-2022',
+            institution: 'Higher Institute of Computer Science and Mathematics, Monastir',
+            description: 'Built strong mathematical foundation in linear algebra, statistics, probability, and computational modeling that supports advanced AI solution design.'
+          },
+          highschool: {
+            title: 'High School Diploma - Technical Science',
+            period: '2018-2019',
+            institution: 'Korba High School',
+            description: 'Focused on advanced sciences, analytical thinking, and technical problem-solving.'
+          }
         }
       },
       skills: {
@@ -117,8 +143,10 @@ const Portfolio = () => {
         description: 'Ready to collaborate on your next AI project? Let\'s discuss how we can bring your ideas to life.',
         name: 'Your Name',
         email: 'Your Email',
+        subject: 'Subject',
         message: 'Your Message',
         send: 'Send Message',
+        success: 'Message sent successfully!',
         location: 'Tunisia',
         phone: '+216 94 188 391',
         email_addr: 'kachahamadi999@gmail.com'
@@ -128,6 +156,7 @@ const Portfolio = () => {
       nav: {
         home: 'Accueil',
         about: 'À Propos',
+        education: 'Formation',
         skills: 'Compétences',
         experience: 'Expérience',
         projects: 'Projets',
@@ -146,12 +175,29 @@ const Portfolio = () => {
       about: {
         title: 'À Propos de Moi',
         description: 'Gacha Hamadi est un développeur IA et data scientist hautement qualifié avec une expertise étendue en développement IA, vision par ordinateur, NLP et déploiement backend.',
-        mission: 'Gacha est un leader communautaire actif à IEEE, a remporté plusieurs hackathons nationaux d\'IA, et démontre des capacités exceptionnelles de déploiement IA.',
-        education: 'Formation',
-        timeline: {
-          master: 'Master Professionnel en Data Science',
-          bachelor: 'Licence en Mathématiques et Applications',
-          highschool: 'Baccalauréat - Sciences Techniques'
+        mission: 'Gacha est un leader communautaire actif à IEEE, a remporté plusieurs hackathons nationaux d\'IA, et démontre des capacités exceptionnelles de déploiement IA.'
+      },
+      education: {
+        title: 'Formation',
+        degrees: {
+          master: {
+            title: 'Master Professionnel en Data Science',
+            period: '2022-2024',
+            institution: 'Institut Supérieur d\'Informatique et de Mathématiques, Monastir',
+            description: 'Développement d\'une expertise avancée en apprentissage automatique, développement IA, analyse de données et modélisation mathématique.'
+          },
+          bachelor: {
+            title: 'Licence en Mathématiques et Applications',
+            period: '2019-2022',
+            institution: 'Institut Supérieur d\'Informatique et de Mathématiques, Monastir',
+            description: 'Construction d\'une base mathématique solide en algèbre linéaire, statistiques, probabilités et modélisation computationnelle.'
+          },
+          highschool: {
+            title: 'Baccalauréat - Sciences Techniques',
+            period: '2018-2019',
+            institution: 'Lycée de Korba',
+            description: 'Concentration sur les sciences avancées, la pensée analytique et la résolution de problèmes techniques.'
+          }
         }
       },
       skills: {
@@ -224,8 +270,10 @@ const Portfolio = () => {
         description: 'Prêt à collaborer sur votre prochain projet IA ? Discutons de la façon dont nous pouvons donner vie à vos idées.',
         name: 'Votre Nom',
         email: 'Votre Email',
+        subject: 'Sujet',
         message: 'Votre Message',
         send: 'Envoyer le Message',
+        success: 'Message envoyé avec succès!',
         location: 'Tunisie',
         phone: '+216 94 188 391',
         email_addr: 'kachahamadi999@gmail.com'
@@ -235,6 +283,7 @@ const Portfolio = () => {
       nav: {
         home: 'الرئيسية',
         about: 'نبذة',
+        education: 'التعليم',
         skills: 'المهارات',
         experience: 'الخبرة',
         projects: 'المشاريع',
@@ -253,12 +302,29 @@ const Portfolio = () => {
       about: {
         title: 'نبذة عني',
         description: 'غشة حمادي هو مطور ذكاء اصطناعي وعالم بيانات ماهر للغاية مع خبرة واسعة في تطوير الذكاء الاصطناعي ورؤية الحاسوب.',
-        mission: 'غشة قائد مجتمعي نشط في IEEE، فاز بعدة هاكاثونات وطنية للذكاء الاصطناعي، ويُظهر قدرات استثنائية في نشر الذكاء الاصطناعي.',
-        education: 'التعليم',
-        timeline: {
-          master: 'ماجستير مهني في علم البيانات',
-          bachelor: 'بكالوريوس في الرياضيات والتطبيقات',
-          highschool: 'شهادة الثانوية العامة - علوم تقنية'
+        mission: 'غشة قائد مجتمعي نشط في IEEE، فاز بعدة هاكاثونات وطنية للذكاء الاصطناعي، ويُظهر قدرات استثنائية في نشر الذكاء الاصطناعي.'
+      },
+      education: {
+        title: 'التعليم',
+        degrees: {
+          master: {
+            title: 'ماجستير مهني في علم البيانات',
+            period: '2022-2024',
+            institution: 'المعهد العالي للرياضيات والحاسوب، المنستير',
+            description: 'تطوير خبرة متقدمة في التعلم الآلي وتطوير الذكاء الاصطناعي وتحليل البيانات والنمذجة الرياضية.'
+          },
+          bachelor: {
+            title: 'بكالوريوس في الرياضيات والتطبيقات',
+            period: '2019-2022',
+            institution: 'المعهد العالي للرياضيات والحاسوب، المنستير',
+            description: 'بناء أساس رياضي قوي في الجبر الخطي والإحصاء والاحتمالات والنمذجة الحاسوبية.'
+          },
+          highschool: {
+            title: 'شهادة الثانوية العامة - علوم تقنية',
+            period: '2018-2019',
+            institution: 'ثانوية قربة',
+            description: 'التركيز على العلوم المتقدمة والتفكير التحليلي وحل المشكلات التقنية.'
+          }
         }
       },
       skills: {
@@ -331,8 +397,10 @@ const Portfolio = () => {
         description: 'جاهز للتعاون في مشروع الذكاء الاصطناعي التالي؟ دعنا نناقش كيف يمكننا إحياء أفكارك.',
         name: 'اسمك',
         email: 'بريدك الإلكتروني',
+        subject: 'الموضوع',
         message: 'رسالتك',
         send: 'إرسال الرسالة',
+        success: 'تم إرسال الرسالة بنجاح!',
         location: 'تونس',
         phone: '+216 94 188 391',
         email_addr: 'kachahamadi999@gmail.com'
@@ -436,6 +504,29 @@ const Portfolio = () => {
   const [selectedAward, setSelectedAward] = useState<number | null>(null);
   const filteredProjects = projectFilter === 'all' ? projects : projects.filter(p => p.category === projectFilter);
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Simple validation
+    if (formData.name && formData.email && formData.message) {
+      // For now, just show success message
+      setFormSubmitted(true);
+      setTimeout(() => setFormSubmitted(false), 3000);
+      
+      // Reset form
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      
+      // In a real application, you would send the data to a backend API
+      console.log('Form submitted:', formData);
+    }
+  };
+
   return (
     <div className={`min-h-screen transition-all duration-500 ${darkMode ? 'dark bg-gray-900' : 'bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'} ${currentLang === 'ar' ? 'rtl' : 'ltr'}`}>
       {/* Navigation */}
@@ -538,40 +629,63 @@ const Portfolio = () => {
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-6">
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t.about.description}
-              </p>
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t.about.mission}
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-200">{t.about.education}</h3>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-4 h-4 bg-blue-500 rounded-full mt-2"></div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 dark:text-gray-200">{t.about.timeline.master}</h4>
-                    <p className="text-gray-600 dark:text-gray-400">2022-2024</p>
+          <div className="max-w-4xl mx-auto space-y-6">
+            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              {t.about.description}
+            </p>
+            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              {t.about.mission}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              {t.education.title}
+            </h2>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              {/* Timeline line */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500"></div>
+              
+              <div className="space-y-12">
+                {Object.entries(t.education.degrees).map(([key, degree], index) => (
+                  <div key={key} className="relative flex items-start group">
+                    {/* Timeline dot */}
+                    <div className="relative z-10 flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full group-hover:scale-110 transition-transform duration-300">
+                      <GraduationCap className="w-8 h-8 text-white" />
+                    </div>
+                    
+                    {/* Content card */}
+                    <Card className="ml-8 flex-1 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
+                      <CardContent className="p-6">
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                          <div>
+                            <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                              {degree.title}
+                            </h3>
+                            <p className="text-blue-600 dark:text-blue-400 font-medium mb-2">
+                              {degree.institution}
+                            </p>
+                          </div>
+                          <div className="flex items-center text-gray-600 dark:text-gray-400">
+                            <Calendar className="w-4 h-4 mr-2" />
+                            {degree.period}
+                          </div>
+                        </div>
+                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                          {degree.description}
+                        </p>
+                      </CardContent>
+                    </Card>
                   </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-4 h-4 bg-purple-500 rounded-full mt-2"></div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 dark:text-gray-200">{t.about.timeline.bachelor}</h4>
-                    <p className="text-gray-600 dark:text-gray-400">2019-2022</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-4 h-4 bg-green-500 rounded-full mt-2"></div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 dark:text-gray-200">{t.about.timeline.highschool}</h4>
-                    <p className="text-gray-600 dark:text-gray-400">2018-2019</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -579,7 +693,7 @@ const Portfolio = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20">
+      <section id="experience" className="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -587,37 +701,57 @@ const Portfolio = () => {
             </h2>
           </div>
           
-          <div className="space-y-12">
-            {Object.entries(t.experience).filter(([key]) => key !== 'title').map(([key, exp]) => (
-              <Card key={key} className="p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-0">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <div>
-                      <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-2">{exp.title}</h3>
-                      <p className="text-xl text-blue-600 dark:text-blue-400 font-medium">{exp.company}</p>
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              {/* Timeline line */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-500 to-blue-500"></div>
+              
+              <div className="space-y-12">
+                {Object.entries(t.experience).filter(([key]) => key !== 'title').map(([key, exp], index) => (
+                  <div key={key} className="relative flex items-start group">
+                    {/* Timeline dot */}
+                    <div className="relative z-10 flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full group-hover:scale-110 transition-transform duration-300">
+                      <Building className="w-8 h-8 text-white" />
                     </div>
-                    <div className="text-gray-600 dark:text-gray-400 mt-2 md:mt-0">
-                      {exp.period}
-                    </div>
+                    
+                    {/* Content card */}
+                    <Card className="ml-8 flex-1 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
+                      <CardContent className="p-6">
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                          <div>
+                            <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                              {exp.title}
+                            </h3>
+                            <p className="text-green-600 dark:text-green-400 font-medium mb-2">
+                              {exp.company}
+                            </p>
+                          </div>
+                          <div className="flex items-center text-gray-600 dark:text-gray-400">
+                            <Calendar className="w-4 h-4 mr-2" />
+                            {exp.period}
+                          </div>
+                        </div>
+                        
+                        <ul className="space-y-3">
+                          {exp.achievements.map((achievement: string, achievementIndex: number) => (
+                            <li key={achievementIndex} className="flex items-start">
+                              <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                              <span className="text-gray-600 dark:text-gray-300">{achievement}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
                   </div>
-                  
-                  <ul className="space-y-3">
-                    {exp.achievements.map((achievement, index) => (
-                      <li key={index} className="flex items-start">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-gray-600 dark:text-gray-300">{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
+      <section id="skills" className="py-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -627,7 +761,7 @@ const Portfolio = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {Object.entries(skills).map(([category, skillList]) => (
-              <Card key={category} className="p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
+              <Card key={category} className="p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <CardContent className="p-0">
                   <div className="flex items-center mb-4">
                     {category === 'aiml' && <Brain className="w-6 h-6 text-blue-500 mr-3" />}
@@ -640,7 +774,7 @@ const Portfolio = () => {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {skillList.map((skill, index) => (
-                      <Badge key={index} variant="secondary" className="bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900">
+                      <Badge key={index} variant="secondary" className="bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 hover:scale-105 transition-transform duration-200">
                         {skill}
                       </Badge>
                     ))}
@@ -653,7 +787,7 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20">
+      <section id="projects" className="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -665,7 +799,7 @@ const Portfolio = () => {
                 <button
                   key={key}
                   onClick={() => setProjectFilter(key)}
-                  className={`px-6 py-2 rounded-full transition-all duration-200 ${
+                  className={`px-6 py-2 rounded-full transition-all duration-200 hover:scale-105 ${
                     projectFilter === key
                       ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white'
                       : 'bg-white/80 dark:bg-gray-700/80 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
@@ -679,7 +813,7 @@ const Portfolio = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => (
-              <Card key={index} className="group overflow-hidden bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <Card key={index} className="group overflow-hidden bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image}
@@ -702,13 +836,13 @@ const Portfolio = () => {
                   </div>
                   
                   <div className="flex gap-3">
-                    <Button size="sm" variant="outline" asChild>
+                    <Button size="sm" variant="outline" asChild className="hover:scale-105 transition-transform duration-200">
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github className="w-4 h-4 mr-2" />
                         {t.projects.viewCode}
                       </a>
                     </Button>
-                    <Button size="sm" className="bg-gradient-to-r from-blue-500 to-purple-500">
+                    <Button size="sm" className="bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105 transition-transform duration-200">
                       <ExternalLink className="w-4 h-4 mr-2" />
                       {t.projects.liveDemo}
                     </Button>
@@ -721,7 +855,7 @@ const Portfolio = () => {
       </section>
 
       {/* Awards Section */}
-      <section id="awards" className="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
+      <section id="awards" className="py-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -733,13 +867,15 @@ const Portfolio = () => {
             {awards.map((award, index) => (
               <Card 
                 key={index} 
-                className="group p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="group p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-105"
                 onClick={() => setSelectedAward(selectedAward === index ? null : index)}
               >
                 <CardContent className="p-0">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
-                      <award.icon className="w-8 h-8 text-yellow-500 mr-4" />
+                      <div className="p-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300">
+                        <award.icon className="w-8 h-8 text-white" />
+                      </div>
                       <div>
                         <h3 className="font-semibold text-gray-800 dark:text-gray-200">{award.title}</h3>
                         <button className="text-blue-500 text-sm hover:underline mt-1">
@@ -763,7 +899,7 @@ const Portfolio = () => {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="py-20">
+      <section id="blog" className="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -773,7 +909,7 @@ const Portfolio = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {blogPosts.map((post, index) => (
-              <Card key={index} className="group overflow-hidden bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <Card key={index} className="group overflow-hidden bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
                 <div className="relative overflow-hidden">
                   <img
                     src={post.image}
@@ -786,7 +922,7 @@ const Portfolio = () => {
                   <h3 className="text-lg font-semibold mb-2 line-clamp-2">{post.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">{post.excerpt}</p>
                   
-                  <Button size="sm" variant="outline" className="w-full">
+                  <Button size="sm" variant="outline" className="w-full hover:scale-105 transition-transform duration-200">
                     {t.blog.readMore}
                   </Button>
                 </CardContent>
@@ -797,7 +933,7 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
+      <section id="contact" className="py-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -808,35 +944,42 @@ const Portfolio = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* Contact Information */}
             <div className="space-y-6">
-              <div className="flex items-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg">
-                <MapPin className="w-6 h-6 text-blue-500 mr-4" />
-                <span>{t.contact.location}</span>
+              <div className="flex items-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-4">
+                  <MapPin className="w-6 h-6 text-white" />
+                </div>
+                <span className="text-gray-700 dark:text-gray-300">{t.contact.location}</span>
               </div>
               
-              <div className="flex items-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg">
-                <Phone className="w-6 h-6 text-green-500 mr-4" />
-                <span>{t.contact.phone}</span>
+              <div className="flex items-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <div className="p-3 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mr-4">
+                  <Phone className="w-6 h-6 text-white" />
+                </div>
+                <span className="text-gray-700 dark:text-gray-300">{t.contact.phone}</span>
               </div>
               
-              <div className="flex items-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg">
-                <Mail className="w-6 h-6 text-red-500 mr-4" />
-                <span>{t.contact.email_addr}</span>
+              <div className="flex items-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <div className="p-3 bg-gradient-to-r from-red-500 to-pink-500 rounded-full mr-4">
+                  <Mail className="w-6 h-6 text-white" />
+                </div>
+                <span className="text-gray-700 dark:text-gray-300">{t.contact.email_addr}</span>
               </div>
               
               <div className="flex space-x-4 pt-4">
-                <Button size="lg" variant="outline" asChild>
+                <Button size="lg" variant="outline" asChild className="hover:scale-110 transition-transform duration-200">
                   <a href="https://www.linkedin.com/in/gacha-hamadi" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="w-5 h-5" />
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
+                <Button size="lg" variant="outline" asChild className="hover:scale-110 transition-transform duration-200">
                   <a href="https://github.com/gacha-hamadi" target="_blank" rel="noopener noreferrer">
                     <Github className="w-5 h-5" />
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
+                <Button size="lg" variant="outline" asChild className="hover:scale-110 transition-transform duration-200">
                   <a href="https://twitter.com/gacha_hamadi" target="_blank" rel="noopener noreferrer">
                     <Twitter className="w-5 h-5" />
                   </a>
@@ -844,34 +987,70 @@ const Portfolio = () => {
               </div>
             </div>
             
-            <Card className="p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
+            {/* Contact Form */}
+            <Card className="p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
               <CardContent className="p-0">
-                <form className="space-y-4">
-                  <div>
-                    <input
+                {formSubmitted && (
+                  <div className="mb-6 p-4 bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700 rounded-lg animate-fade-in">
+                    <div className="flex items-center">
+                      <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mr-2" />
+                      <span className="text-green-700 dark:text-green-300">{t.contact.success}</span>
+                    </div>
+                  </div>
+                )}
+                
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="group">
+                    <Input
                       type="text"
+                      name="name"
                       placeholder={t.contact.name}
-                      className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:scale-105"
+                      required
                     />
                   </div>
                   
-                  <div>
-                    <input
+                  <div className="group">
+                    <Input
                       type="email"
+                      name="email"
                       placeholder={t.contact.email}
-                      className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:scale-105"
+                      required
                     />
                   </div>
                   
-                  <div>
-                    <textarea
+                  <div className="group">
+                    <Input
+                      type="text"
+                      name="subject"
+                      placeholder={t.contact.subject}
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      className="w-full transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:scale-105"
+                    />
+                  </div>
+                  
+                  <div className="group">
+                    <Textarea
+                      name="message"
                       placeholder={t.contact.message}
                       rows={5}
-                      className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                    ></textarea>
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      className="w-full transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:scale-105 resize-none"
+                      required
+                    />
                   </div>
                   
-                  <Button type="submit" className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white">
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white hover:scale-105 transition-all duration-200"
+                  >
                     {t.contact.send}
                   </Button>
                 </form>
