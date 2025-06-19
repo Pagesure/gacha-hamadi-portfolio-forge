@@ -735,7 +735,12 @@ const Portfolio = () => {
                 <a href="#contact">{t.hero.contactMe}</a>
               </Button>
               <Button variant="outline" size="lg" className="px-8 py-3">
-                <a href="cv.pdf" download className="flex items-center">
+                <a
+                  href="cv.pdf"
+                  download
+                  className="flex items-center"
+                  target="_blank"
+                >
                   <Download className="w-4 h-4 mr-2" />
                   {t.hero.downloadCV}
                 </a>
